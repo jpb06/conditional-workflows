@@ -1,0 +1,14 @@
+{
+  "name": "conditional-workflows",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/jpb06/conditional-workflows.git",
+  "author": "jpb06 <jpb.06@outlook.com>",
+  "license": "MIT",
+  "dependencies": {
+    "fs-extra": "^10.0.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^9.0.11"
+  }
+}
