@@ -1,0 +1,28 @@
+[
+   {
+      "id": 1,
+      "email": "yolo@cool.org",
+      "name": "Yolo",
+      "roles": [
+         "user"
+      ],
+      "plan": "none"
+   },
+   {
+      "id": 2,
+      "email": "bro@cool.org",
+      "name": "Bro",
+      "roles": [
+         "user"
+      ],
+      "plan": "advanced"
+   },
+   {
+      "id": 3,
+      "email": "yolanda@cool.org",
+      "name": "Yolanda",
+      "roles": [
+         "admin"
+      ]
+   }
+]
