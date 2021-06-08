@@ -24,5 +24,23 @@
       "roles": [
          "admin"
       ]
+   },
+   {
+      "id": 4,
+      "email": "yolila@cool.org",
+      "name": "Yoli yola",
+      "roles": [
+         "user"
+      ],
+      "plan": "premium"
+   },
+   {
+      "id": 5,
+      "email": "boy@cool.org",
+      "name": "boy",
+      "roles": [
+         "user"
+      ],
+      "plan": "advanced"
    }
 ]
