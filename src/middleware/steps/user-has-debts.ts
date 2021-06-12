@@ -3,16 +3,16 @@ import { WorkflowContext } from '../types/workflow-context.interface';
 import { DeadEnd } from '../types/workflow-deadends.enum';
 import { WorkflowGate as Gate } from '../types/workflow-gates';
 
-export const userExists = (exists: boolean) => {
+export const userhasDebts = (hasDebts: boolean) => {
   return async (
     context: WorkflowContext,
     next: NextFunction
   ): Promise<void> => {
-    const isStepIgnored = context.startStep > Gate.UserExists;
-    if (isStepIgnored || exists) {
+    const isStepIgnored = context.startStep > Gate.UserHasDebts;
+    if (isStepIgnored || !hasDebts) {
       return await next();
     }
 
-    context.deadEnd = DeadEnd.Signup;
+    context.deadEnd = DeadEnd.Payment;
   };
 };

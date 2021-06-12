@@ -4,45 +4,36 @@ import { WorkflowGate as Gate } from './types/workflow-gates';
 
 describe('middlewareResolveFrom function', () => {
   describe('From step 1', () => {
-    it('should return signup if user does not exist', async () => {
-      const deadEnd = await middlewareResolveFrom(
-        Gate.UserExists,
-        'unknown@bro.com'
-      );
-
-      expect(deadEnd).toBe(DeadEnd.Signup);
-    });
-
     it('should return admin-portal if user is an admin', async () => {
       const deadEnd = await middlewareResolveFrom(
-        Gate.UserExists,
+        Gate.UserIsAdmin,
         'yolanda@cool.org'
       );
 
       expect(deadEnd).toBe(DeadEnd.AdminPortal);
     });
 
+    it('should return payment if user is in debt', async () => {
+      const deadEnd = await middlewareResolveFrom(
+        Gate.UserIsAdmin,
+        'yolo@cool.org'
+      );
+
+      expect(deadEnd).toBe(DeadEnd.Payment);
+    });
+
     it('should return leased-books if user has borrowed books', async () => {
       const deadEnd = await middlewareResolveFrom(
-        Gate.UserExists,
+        Gate.UserIsAdmin,
         'bro@cool.org'
       );
 
       expect(deadEnd).toBe(DeadEnd.LeasedBooks);
     });
 
-    it('should return mainstream-offers', async () => {
-      const deadEnd = await middlewareResolveFrom(
-        Gate.UserExists,
-        'yolo@cool.org'
-      );
-
-      expect(deadEnd).toBe(DeadEnd.MainstreamOffers);
-    });
-
     it('should return bookworm-offers', async () => {
       const deadEnd = await middlewareResolveFrom(
-        Gate.UserExists,
+        Gate.UserIsAdmin,
         'yolila@cool.org'
       );
 
@@ -51,11 +42,22 @@ describe('middlewareResolveFrom function', () => {
 
     it('should return prestige-offers', async () => {
       const deadEnd = await middlewareResolveFrom(
-        Gate.UserExists,
+        Gate.UserIsAdmin,
         'boy@cool.org'
       );
 
       expect(deadEnd).toBe(DeadEnd.PrestigeOffers);
+    });
+  });
+
+  describe('From step 3', () => {
+    it('should return mainstream offers, bypassing the debt check step', async () => {
+      const deadEnd = await middlewareResolveFrom(
+        Gate.UserHasBorrowedBooks,
+        'yolo@cool.org'
+      );
+
+      expect(deadEnd).toBe(DeadEnd.MainstreamOffers);
     });
   });
 
