@@ -1,6 +1,6 @@
 export enum DeadEnd {
-  Signup = 'signup',
   AdminPortal = 'admin-portal',
+  Payment = 'payment',
   LeasedBooks = 'leased-books',
   MainstreamOffers = 'mainstream-offers',
   BookwormOffers = 'bookworm-offers',
