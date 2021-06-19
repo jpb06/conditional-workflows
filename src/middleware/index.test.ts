@@ -6,16 +6,16 @@ describe('middlewareResolveFrom function', () => {
   describe('From step 1', () => {
     it('should return admin-portal if user is an admin', async () => {
       const deadEnd = await middlewareResolveFrom(
-        Gate.UserIsAdmin,
+        Gate.userHasMissingInfo,
         'yolanda@cool.org'
       );
 
-      expect(deadEnd).toBe(DeadEnd.AdminPortal);
+      expect(deadEnd).toBe(DeadEnd.UserProfile);
     });
 
     it('should return payment if user is in debt', async () => {
       const deadEnd = await middlewareResolveFrom(
-        Gate.UserIsAdmin,
+        Gate.userHasMissingInfo,
         'yolo@cool.org'
       );
 
@@ -24,7 +24,7 @@ describe('middlewareResolveFrom function', () => {
 
     it('should return leased-books if user has borrowed books', async () => {
       const deadEnd = await middlewareResolveFrom(
-        Gate.UserIsAdmin,
+        Gate.userHasMissingInfo,
         'bro@cool.org'
       );
 
@@ -33,7 +33,7 @@ describe('middlewareResolveFrom function', () => {
 
     it('should return bookworm-offers', async () => {
       const deadEnd = await middlewareResolveFrom(
-        Gate.UserIsAdmin,
+        Gate.userHasMissingInfo,
         'yolila@cool.org'
       );
 
@@ -42,7 +42,7 @@ describe('middlewareResolveFrom function', () => {
 
     it('should return prestige-offers', async () => {
       const deadEnd = await middlewareResolveFrom(
-        Gate.UserIsAdmin,
+        Gate.userHasMissingInfo,
         'boy@cool.org'
       );
 

@@ -1,5 +1,5 @@
 export enum DeadEnd {
-  AdminPortal = 'admin-portal',
+  UserProfile = 'user-profile',
   Payment = 'payment',
   LeasedBooks = 'leased-books',
   MainstreamOffers = 'mainstream-offers',
