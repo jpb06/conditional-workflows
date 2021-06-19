@@ -4,7 +4,7 @@ import { getUserBorrowedBooks } from './getUserBorrowedBooks';
 import { getUserDebts } from './getUserDebts';
 
 interface UserData {
-  isAdmin: boolean;
+  hasMissingInfo: boolean;
   hasBorrowedBooks: boolean;
   hasDebts: boolean;
   plan?: Plan;
@@ -17,13 +17,13 @@ export const getUserData = async (email: string): Promise<UserData> => {
     throw new Error('User not found');
   }
 
-  const isAdmin = user?.roles.includes('admin') || false;
+  const hasMissingInfo = user?.country === undefined;
   const plan = user?.plan || undefined;
   const hasBorrowedBooks = (await getUserBorrowedBooks(user.id)).length > 0;
   const hasDebts = (await getUserDebts(user.id)).length > 0;
 
   return {
-    isAdmin,
+    hasMissingInfo,
     hasBorrowedBooks,
     hasDebts,
     plan,

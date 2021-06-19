@@ -3,44 +3,33 @@
       "id": 1,
       "email": "yolo@cool.org",
       "name": "Yolo",
-      "roles": [
-         "user"
-      ],
+      "country": "France",
       "plan": "none"
    },
    {
       "id": 2,
       "email": "bro@cool.org",
       "name": "Bro",
-      "roles": [
-         "user"
-      ],
+      "country": "United Kingdom",
       "plan": "advanced"
    },
    {
       "id": 3,
       "email": "yolanda@cool.org",
-      "name": "Yolanda",
-      "roles": [
-         "admin"
-      ]
+      "name": "Yolanda"
    },
    {
       "id": 4,
       "email": "yolila@cool.org",
       "name": "Yoli yola",
-      "roles": [
-         "user"
-      ],
+      "country": "United States of America",
       "plan": "premium"
    },
    {
       "id": 5,
       "email": "boy@cool.org",
       "name": "boy",
-      "roles": [
-         "user"
-      ],
+      "country": "Italia",
       "plan": "advanced"
    }
 ]
